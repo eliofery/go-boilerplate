@@ -22,3 +22,23 @@ Checking code for style guide compliance. Additionally, code verification is per
 ```bash
 make lint
 ```
+
+## Use
+
+You need to download the library binaries.
+
+```bash
+make download-bin
+```
+
+Run in development mode.
+
+```bash
+make run-dev
+```
+
+Run in product mode.
+
+```bash
+make run
+```
