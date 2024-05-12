@@ -1,0 +1,22 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-added-large-files
+      - id: check-merge-conflict
+  - repo: local
+    hooks:
+      - id: golangci-lint
+        name: Run golangci-lint
+        description: Checks files that have changed since the last commit and uses custom linter settings.
+        entry: bin/golangci-lint run --whole-files --new-from-rev HEAD --config .golangci.yaml
+        types: [ go ]
+        language: golang
+        verbose: true
+        pass_filenames: false
